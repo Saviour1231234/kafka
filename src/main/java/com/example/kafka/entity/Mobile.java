@@ -6,29 +6,24 @@ import lombok.Data;
 import lombok.experimental.FieldDefaults;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 import org.springframework.data.mongodb.core.mapping.FieldType;
 
-import java.util.List;
-
-@Document(collection = "Address")
+@Document(collection = "Mobile")
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @AllArgsConstructor
 @Data
-public class Address {
+public class Mobile {
 
     @Id
     @Field(targetType = FieldType.OBJECT_ID)
     String id;
 
-    String street;
+    String mobileNumber;
+    String mobileNumber2;
 
-    @DBRef
-    List<Mobile> mobile;
-
-    public Address() {
+    public Mobile() {
         this.id = new ObjectId().toString();
     }
 }
